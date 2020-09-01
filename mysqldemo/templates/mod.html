@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<table align="center">
+    <tr>
+    <form action="" method="post">
+        {% csrf_token %}
+       <td>主机名： <input type="text" name="hostname" value="{{vps.hostname}}"></td>
+       <td>IP地址： <input type="text" name="ip" value="{{vps.ip}}"></td>
+       <td>内存： <input type="text" name="memory" value="{{vps.memory}}"></td>
+       <td>CPU： <input type="text" name="cpu" value="{{vps.cpu}}"></td>
+        <td><input type="submit" value="修改" style="width: 100px;font-size: 15px"></td>
+    </form>
+    </tr>
+</table>
+{% endblock %}

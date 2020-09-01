@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <table align="center">
+    <tr>
+    <form action="" method="post">
+        {% csrf_token %}
+        <td>主机名：<input type="text" name="hostname"></td>
+        <td>ip地址：<input type="text" name="ip"></td>
+        <td>内存：<input type="text" name="memory"></td>
+        <td>cpu：<input type="text" name="cpu">&nbsp;</td>
+        <td><input type="submit" value="提交" style="width: 100px"></td>
+    </form>
+    </tr>
+    </table>
+{% endblock %}

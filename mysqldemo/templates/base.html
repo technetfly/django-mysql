@@ -1,0 +1,9 @@
+<style>
+    /*设置按钮大小*/
+    button{width: 200px;height: 50px;font-size: 20px}
+</style>
+<p align="center">
+  <a href="{% url 'mysqldemo:show_info' %}"><button>显示所有数据</button></a>
+</p>
+
+{% block content %}{% endblock %}

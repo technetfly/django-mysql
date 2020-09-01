@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    /*设置按钮大小*/
+    button{width: 200px;height: 50px;font-size: 20px}
+</style>
+<table align="center">
+    <tr>
+    <td><a href="{% url 'mysqldemo:add_stu' %}">{{ vps.id }}<button>新增虚拟机信息</button></a>&emsp;&emsp;</td>
+    <td><a href="{% url 'mysqldemo:sel_stu' %}">{{ vps.id }}<button>查询虚拟机信息</button></a></td>
+    </tr>
+</table>
+    <br>
+<table border="1" align="center">
+    <thead>
+        <th align="center" style="color:red">&nbsp;序号&nbsp;</th>
+        <th align="center" style="color:red">&emsp;主机名&emsp;</th>
+        <th align="center" style="color:red">&emsp;&emsp;IP地址&emsp;&emsp;</th>
+        <th align="center" style="color:red">&emsp;内存&emsp;</th>
+        <th align="center" style="color:red">&emsp;CPU&emsp;</th>
+        <th align="center" style="color:red">删除虚拟机</th>
+        <th align="center" style="color:red">修改虚拟机</th>
+    </thead>
+    <tbody>
+        {% for vps in vpss %}
+            <tr>
+                <td align="center">{{vps.id}}</td>
+                <td align="center">{{vps.hostname}}</td>
+                <td align="center">{{vps.ip}}</td>
+                <td align="center">{{vps.memory}}</td>
+                <td align="center">{{vps.cpu}}</td>
+                <td align="center"><a href="{% url 'mysqldemo:del_stu' vps.id %}">
+                    <button style="width: 80px;height: 30px;font-size: 18px">删除</button></a></td>
+                <td align="center"><a href="{% url 'mysqldemo:mod_stu' vps.id %}">
+                    <button style="width: 80px;height: 30px;font-size: 18px">修改</button></a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

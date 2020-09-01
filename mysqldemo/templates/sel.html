@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <table align="center">
+            <tr>
+            <td><h3>请输入主机名:<input type="text" name="hostname"></h3></td>
+                <td><h3><input type="submit" value="提交" style="width: 100px;
+                height: 28px;font-size: 18px"></h3></td>
+            </tr>
+        </table>
+        <table border="1" align="center">
+            <br>
+        {% if vps %}
+            <thead>
+            <th align="center" style="color:red">&nbsp;序号&nbsp;</th>
+            <th align="center" style="color:red">&emsp;主机名&emsp;</th>
+            <th align="center" style="color:red">&emsp;&emsp;IP地址&emsp;&emsp;</th>
+            <th align="center" style="color:red">&emsp;内存&emsp;</th>
+            <th align="center" style="color:red">&emsp;CPU&emsp;</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td align="center">{{vps.id}}</td>
+                    <td align="center">{{vps.hostname}}</td>
+                    <td align="center">{{vps.ip}}</td>
+                    <td align="center">{{vps.memory}}</td>
+                    <td align="center">{{vps.cpu}}</td>
+                </tr>
+            </tbody>
+        </table>
+        {% endif %}
+    </form>
+<h1 style="color:red" align="center">{{error}}</h1>
+{% endblock %}
